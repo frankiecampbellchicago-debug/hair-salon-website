@@ -109,6 +109,11 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
+    var nextBtn = document.getElementById('wig-next-btn');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', goToNext);
+    }
+
     var wheelCooldown = false;
     stageEl.addEventListener('wheel', function (e) {
       if (wheelCooldown || Math.abs(e.deltaY) < 4) return;

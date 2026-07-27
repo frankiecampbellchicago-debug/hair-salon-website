@@ -556,6 +556,12 @@ footer a:hover { color: #fff; }
   font-weight: 600;
 }
 
+.wig-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .wig-pin {
   display: inline-flex;
   align-items: center;
@@ -566,6 +572,35 @@ footer a:hover { color: #fff; }
   font-weight: 500;
   padding: 8px 14px;
   border-radius: 999px;
+}
+
+.wig-next-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: var(--color-text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.wig-next-btn:hover,
+.wig-next-btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.wig-next-btn svg {
+  transition: transform 300ms ease;
+}
+
+.wig-next-btn:active svg {
+  transform: rotate(180deg);
 }
 
 .wig-stage {
@@ -801,10 +836,10 @@ footer a:hover { color: #fff; }
     height: 130px;
   }
 
-  .wig-thumb[data-index="0"] { left: 0%; top: 8%; transform: rotate(-12deg); }
-  .wig-thumb[data-index="1"] { left: 16%; top: 46%; transform: rotate(-6deg); }
-  .wig-thumb[data-index="2"] { right: 16%; top: 46%; transform: rotate(6deg); }
-  .wig-thumb[data-index="3"] { right: 0%; top: 8%; transform: rotate(12deg); }
+  .wig-thumb[data-index="0"] { left: 0%; top: 50%; margin-top: -65px; transform: rotate(-12deg); }
+  .wig-thumb[data-index="1"] { left: 24%; top: 50%; margin-top: -65px; transform: rotate(-6deg); }
+  .wig-thumb[data-index="2"] { right: 24%; top: 50%; margin-top: -65px; transform: rotate(6deg); }
+  .wig-thumb[data-index="3"] { right: 0%; top: 50%; margin-top: -65px; transform: rotate(12deg); }
 
   .wig-thumb:hover,
   .wig-thumb:focus-visible {
