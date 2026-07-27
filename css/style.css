@@ -523,6 +523,10 @@ footer a:hover { color: #fff; }
   padding: 12px 0 16px;
 }
 
+.wig-hero .container {
+  max-width: 1520px;
+}
+
 .wig-frame {
   padding: 8px;
   background: linear-gradient(135deg, var(--color-secondary), var(--color-cta));
@@ -808,7 +812,10 @@ footer a:hover { color: #fff; }
 }
 
 @media (min-width: 768px) {
-  .wig-card-bg { padding: 14px 32px 12px; }
+  .wig-card-bg {
+    padding: 14px 32px 12px;
+    height: clamp(480px, calc(100vh - 150px), 800px);
+  }
 
   .wig-stage {
     display: block;
@@ -854,8 +861,8 @@ footer a:hover { color: #fff; }
   .wig-center {
     position: absolute;
     left: 50%;
-    top: 0;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     margin-bottom: 0;
   }
 
