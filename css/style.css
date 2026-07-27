@@ -520,23 +520,22 @@ footer a:hover { color: #fff; }
    ========================================================================== */
 
 .wig-hero {
-  padding: 40px 0 88px;
+  padding: 12px 0 16px;
 }
 
 .wig-frame {
-  padding: 10px;
+  padding: 8px;
   background: linear-gradient(135deg, var(--color-secondary), var(--color-cta));
-  border-radius: 32px;
+  border-radius: 28px;
   box-shadow: var(--shadow-soft);
 }
 
 .wig-card-bg {
   position: relative;
   background: radial-gradient(ellipse at 50% 120%, #4c1d3d 0%, #26102a 55%, #180a1c 100%);
-  border-radius: 24px;
-  padding: 28px 24px 32px;
+  border-radius: 20px;
+  padding: 16px 20px 14px;
   overflow: hidden;
-  min-height: 640px;
   display: flex;
   flex-direction: column;
 }
@@ -609,8 +608,8 @@ footer a:hover { color: #fff; }
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 380px;
-  margin: 24px 0;
+  min-height: 240px;
+  margin: 12px 0;
 }
 
 .wig-thumbs {
@@ -676,7 +675,7 @@ footer a:hover { color: #fff; }
 }
 
 .wig-center-media {
-  width: 220px;
+  width: 170px;
   aspect-ratio: 3 / 4;
   border-radius: 22px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
@@ -736,11 +735,11 @@ footer a:hover { color: #fff; }
   font-family: var(--font-heading);
   color: #fff;
   text-align: center;
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.2;
   max-width: 32ch;
-  margin: 8px auto 8px;
+  margin: 4px auto 4px;
   position: relative;
   z-index: 3;
 }
@@ -748,16 +747,16 @@ footer a:hover { color: #fff; }
 .wig-subtitle {
   text-align: center;
   color: rgba(255, 255, 255, 0.65);
-  font-size: 0.92rem;
-  margin-bottom: 24px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
 }
 
 .wig-actions {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 
 .btn-outline-light {
@@ -809,11 +808,11 @@ footer a:hover { color: #fff; }
 }
 
 @media (min-width: 768px) {
-  .wig-card-bg { padding: 36px 48px 40px; }
+  .wig-card-bg { padding: 14px 32px 12px; }
 
   .wig-stage {
     display: block;
-    min-height: 440px;
+    min-height: 280px;
   }
 
   .wig-thumbs {
@@ -827,19 +826,19 @@ footer a:hover { color: #fff; }
 
   .wig-thumb {
     position: absolute;
-    width: 130px;
+    width: 100px;
   }
 
   .wig-thumb-swatch,
   .wig-thumb[data-index] .wig-thumb-swatch {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
   }
 
-  .wig-thumb[data-index="0"] { left: 0%; top: 50%; margin-top: -65px; transform: rotate(-12deg); }
-  .wig-thumb[data-index="1"] { left: 24%; top: 50%; margin-top: -65px; transform: rotate(-6deg); }
-  .wig-thumb[data-index="2"] { right: 24%; top: 50%; margin-top: -65px; transform: rotate(6deg); }
-  .wig-thumb[data-index="3"] { right: 0%; top: 50%; margin-top: -65px; transform: rotate(12deg); }
+  .wig-thumb[data-index="0"] { left: 0%; top: 50%; margin-top: -50px; transform: rotate(-12deg); }
+  .wig-thumb[data-index="1"] { left: 24%; top: 50%; margin-top: -50px; transform: rotate(-6deg); }
+  .wig-thumb[data-index="2"] { right: 24%; top: 50%; margin-top: -50px; transform: rotate(6deg); }
+  .wig-thumb[data-index="3"] { right: 0%; top: 50%; margin-top: -50px; transform: rotate(12deg); }
 
   .wig-thumb:hover,
   .wig-thumb:focus-visible {
@@ -861,8 +860,8 @@ footer a:hover { color: #fff; }
   }
 
   .wig-center-media {
-    width: 280px;
-    height: 380px;
+    width: auto;
+    height: 260px;
   }
 }
 
