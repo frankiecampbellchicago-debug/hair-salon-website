@@ -28,116 +28,176 @@
   <main>
     <section class="page-header">
       <div class="container">
-        <h1>Services & Pricing</h1>
-        <p>Transparent pricing, no surprises. Final cost may vary with hair length/density.</p>
+        <h1>Services &amp; Pricing</h1>
+        <p>Transparent pricing, no surprises. Final cost may vary with hair length and density.</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="padding-top: 0;">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">Cuts</span>
-          <h2>Haircuts & Styling</h2>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Signature Haircut</h3>
-            <p>Consultation, shampoo, precision cut, and style.</p>
-            <div class="price">From $65</div>
-          </div>
-          <div class="card">
-            <h3>Men's Cut</h3>
-            <p>Classic or modern cut with clean finish.</p>
-            <div class="price">From $40</div>
-          </div>
-          <div class="card">
-            <h3>Children's Cut</h3>
-            <p>For clients 12 and under.</p>
-            <div class="price">From $30</div>
-          </div>
-          <div class="card">
-            <h3>Blowout & Style</h3>
-            <p>Wash, blow-dry, and finishing style.</p>
-            <div class="price">From $45</div>
-          </div>
-          <div class="card">
-            <h3>Special Occasion Style</h3>
-            <p>Updos and event-ready styling.</p>
-            <div class="price">From $85</div>
-          </div>
-          <div class="card">
-            <h3>Bang Trim</h3>
-            <p>Quick refresh between full cuts.</p>
-            <div class="price">$15</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">Color</span>
-          <h2>Color Services</h2>
+        <div class="svc-filters" role="group" aria-label="Filter services by category">
+          <button class="svc-filter is-active" data-filter="all" aria-pressed="true">All Services</button>
+          <button class="svc-filter" data-filter="cuts" aria-pressed="false">Cuts &amp; Styling</button>
+          <button class="svc-filter" data-filter="color" aria-pressed="false">Color</button>
+          <button class="svc-filter" data-filter="treatments" aria-pressed="false">Treatments</button>
         </div>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Full Color</h3>
-            <p>All-over color with gloss and blow-dry finish.</p>
-            <div class="price">From $120</div>
-          </div>
-          <div class="card">
-            <h3>Balayage</h3>
-            <p>Hand-painted highlights for natural dimension.</p>
-            <div class="price">From $175</div>
-          </div>
-          <div class="card">
-            <h3>Foil Highlights</h3>
-            <p>Full or partial foils for consistent lift.</p>
-            <div class="price">From $150</div>
-          </div>
-          <div class="card">
-            <h3>Root Touch-Up</h3>
-            <p>Color refresh at the root for regrowth.</p>
-            <div class="price">From $75</div>
-          </div>
-          <div class="card">
-            <h3>Toner / Gloss</h3>
-            <p>Shine and tone correction.</p>
-            <div class="price">From $45</div>
-          </div>
-          <div class="card">
-            <h3>Color Correction</h3>
-            <p>Consultation required; priced per session.</p>
-            <div class="price">Custom quote</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">Treatments</span>
-          <h2>Hair Health & Treatments</h2>
+        <div class="svc-grid" id="svc-grid">
+
+          <article class="svc-card" data-cat="cuts">
+            <img src="https://placehold.co/800x600/8B5CF6/FFFFFF?text=Signature+Haircut" alt="Stylist finishing a signature haircut" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Cut</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Signature Haircut</h3>
+              <p class="svc-card__meta">From $65 <span class="dot"></span> 60 min</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="cuts">
+            <img src="https://placehold.co/800x600/EC4899/FFFFFF?text=Men%27s+Cut" alt="Men's haircut being finished at the chair" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Cut</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Men's Cut</h3>
+              <p class="svc-card__meta">From $40 <span class="dot"></span> 40 min</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="cuts">
+            <img src="https://placehold.co/800x600/DB2777/FFFFFF?text=Children%27s+Cut" alt="Child getting a haircut" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Cut</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Children's Cut</h3>
+              <p class="svc-card__meta">From $30 <span class="dot"></span> Ages 12 &amp; under</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="cuts">
+            <img src="https://placehold.co/800x600/C026D3/FFFFFF?text=Blowout+%26+Style" alt="Blowout and styling in progress" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Styling</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Blowout &amp; Style</h3>
+              <p class="svc-card__meta">From $45 <span class="dot"></span> 45 min</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="cuts">
+            <img src="https://placehold.co/800x600/5B21B6/FFFFFF?text=Occasion+Styling" alt="Formal updo styled for a special occasion" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Styling</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Special Occasion Style</h3>
+              <p class="svc-card__meta">From $85 <span class="dot"></span> Updos &amp; events</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="cuts">
+            <img src="https://placehold.co/800x600/F472B6/FFFFFF?text=Bang+Trim" alt="Bang trim being shaped" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Cut</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Bang Trim</h3>
+              <p class="svc-card__meta">$15 <span class="dot"></span> 15 min</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="color">
+            <img src="https://placehold.co/800x600/EC4899/FFFFFF?text=Full+Color" alt="All-over hair color being applied" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Color</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Full Color</h3>
+              <p class="svc-card__meta">From $120 <span class="dot"></span> 2 hrs</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="color">
+            <img src="https://placehold.co/800x600/8B5CF6/FFFFFF?text=Balayage" alt="Hand-painted balayage highlights" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Color</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Balayage</h3>
+              <p class="svc-card__meta">From $175 <span class="dot"></span> 3 hrs</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="color">
+            <img src="https://placehold.co/800x600/C026D3/FFFFFF?text=Foil+Highlights" alt="Foil highlights being placed" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Color</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Foil Highlights</h3>
+              <p class="svc-card__meta">From $150 <span class="dot"></span> Full or partial</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="color">
+            <img src="https://placehold.co/800x600/DB2777/FFFFFF?text=Root+Touch-Up" alt="Root touch-up color application" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Color</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Root Touch-Up</h3>
+              <p class="svc-card__meta">From $75 <span class="dot"></span> 90 min</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="color">
+            <img src="https://placehold.co/800x600/5B21B6/FFFFFF?text=Toner+%26+Gloss" alt="Glossing treatment adding shine" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Color</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Toner &amp; Gloss</h3>
+              <p class="svc-card__meta">From $45 <span class="dot"></span> 45 min</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="color">
+            <img src="https://placehold.co/800x600/F472B6/FFFFFF?text=Color+Correction" alt="Colorist consulting on a color correction" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Color</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Color Correction</h3>
+              <p class="svc-card__meta">Custom quote <span class="dot"></span> Consult required</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="treatments">
+            <img src="https://placehold.co/800x600/8B5CF6/FFFFFF?text=Deep+Conditioning" alt="Deep conditioning treatment being applied" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Treatment</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Deep Conditioning</h3>
+              <p class="svc-card__meta">From $35 <span class="dot"></span> 30 min</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="treatments">
+            <img src="https://placehold.co/800x600/EC4899/FFFFFF?text=Keratin+Smoothing" alt="Keratin smoothing treatment" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Treatment</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Keratin Smoothing</h3>
+              <p class="svc-card__meta">From $200 <span class="dot"></span> Lasts 3 months</p>
+            </div>
+          </article>
+
+          <article class="svc-card" data-cat="treatments">
+            <img src="https://placehold.co/800x600/DB2777/FFFFFF?text=Scalp+Treatment" alt="Exfoliating scalp treatment" loading="lazy">
+            <div class="svc-card__scrim"></div>
+            <span class="svc-card__tag">Treatment</span>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Scalp Treatment</h3>
+              <p class="svc-card__meta">From $40 <span class="dot"></span> 30 min</p>
+            </div>
+          </article>
+
         </div>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Deep Conditioning</h3>
-            <p>Intensive moisture treatment for dry or damaged hair.</p>
-            <div class="price">From $35</div>
-          </div>
-          <div class="card">
-            <h3>Keratin Smoothing</h3>
-            <p>Reduces frizz, adds shine, lasts up to 3 months.</p>
-            <div class="price">From $200</div>
-          </div>
-          <div class="card">
-            <h3>Scalp Treatment</h3>
-            <p>Exfoliating treatment for a healthy scalp.</p>
-            <div class="price">From $40</div>
-          </div>
-        </div>
+
+        <p class="svc-empty" id="svc-empty" hidden>No services in this category yet.</p>
       </div>
     </section>
 

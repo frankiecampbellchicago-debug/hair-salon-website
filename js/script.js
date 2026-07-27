@@ -56,6 +56,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var svcGrid = document.getElementById('svc-grid');
+  if (svcGrid) {
+    var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.svc-filter'));
+    var svcCards = Array.prototype.slice.call(svcGrid.querySelectorAll('.svc-card'));
+    var svcEmpty = document.getElementById('svc-empty');
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filter = btn.getAttribute('data-filter');
+        var shown = 0;
+
+        filterBtns.forEach(function (other) {
+          var isActive = other === btn;
+          other.classList.toggle('is-active', isActive);
+          other.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        svcCards.forEach(function (card) {
+          var match = filter === 'all' || card.getAttribute('data-cat') === filter;
+          card.classList.toggle('is-hidden', !match);
+          if (match) shown++;
+        });
+
+        if (svcEmpty) svcEmpty.hidden = shown > 0;
+      });
+    });
+  }
+
   var wigStage = document.getElementById('wig-thumbs');
   if (wigStage) {
     var styles = [
