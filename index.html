@@ -26,18 +26,73 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="wig-hero">
       <div class="container">
-        <div>
-          <span class="hero-eyebrow">Est. 2015 &middot; Downtown</span>
-          <h1>Where great hair starts with great care</h1>
-          <p>Cut, color, and styling from a team that listens first. Step into a warm, welcoming space designed around you.</p>
-          <div class="hero-actions">
-            <a href="contact.html" class="btn btn-primary">Book an Appointment</a>
-            <a href="services.html" class="btn btn-outline">View Services</a>
+        <div class="wig-frame">
+          <div class="wig-card-bg">
+
+            <div class="wig-topbar">
+              <span class="wig-logo">Lumière</span>
+              <span class="wig-pin">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Downtown Studio
+              </span>
+            </div>
+
+            <div class="wig-stage">
+              <div class="wig-thumbs" id="wig-thumbs">
+                <button class="wig-thumb" data-index="0" aria-pressed="true" aria-label="Classic Bob, from $180">
+                  <span class="wig-thumb-swatch"></span>
+                  <span class="wig-thumb-label">Classic Bob</span>
+                </button>
+                <button class="wig-thumb" data-index="1" aria-pressed="false" aria-label="Soft Waves, from $220">
+                  <span class="wig-thumb-swatch"></span>
+                  <span class="wig-thumb-label">Soft Waves</span>
+                </button>
+                <button class="wig-thumb" data-index="2" aria-pressed="false" aria-label="Sleek Straight, from $160">
+                  <span class="wig-thumb-swatch"></span>
+                  <span class="wig-thumb-label">Sleek Straight</span>
+                </button>
+                <button class="wig-thumb" data-index="3" aria-pressed="false" aria-label="Voluminous Curls, from $240">
+                  <span class="wig-thumb-swatch"></span>
+                  <span class="wig-thumb-label">Voluminous Curls</span>
+                </button>
+              </div>
+
+              <div class="wig-center">
+                <div class="wig-center-media" id="wig-center-media">
+                  <svg class="wig-center-icon" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                  <span class="wig-center-label" id="wig-center-label">Classic Bob</span>
+                </div>
+                <div class="wig-price-tag">
+                  <span id="wig-price">$180</span>
+                  <button class="wig-cart-btn" aria-label="Book this style">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <h1 class="wig-title">Try on your next look before you book it</h1>
+            <p class="wig-subtitle" aria-live="polite" id="wig-announce">Now viewing: Classic Bob, from $180</p>
+
+            <div class="wig-actions">
+              <a href="contact.html" class="btn btn-primary">Book an Appointment</a>
+              <a href="services.html" class="btn btn-outline-light">View Services</a>
+            </div>
+
+            <div class="wig-controls">
+              <button class="wig-playpause" id="wig-playpause" aria-label="Pause style rotation" aria-pressed="false">
+                <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+                <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" hidden><path d="M8 5v14l11-7Z"/></svg>
+              </button>
+              <div class="wig-progress-track">
+                <div class="wig-progress-fill" id="wig-progress-fill"></div>
+              </div>
+            </div>
+
           </div>
         </div>
-        <div class="hero-image" role="img" aria-label="Stylist working with a client in a bright, modern salon"></div>
       </div>
     </section>
 

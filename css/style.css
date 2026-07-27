@@ -514,3 +514,350 @@ footer a:hover { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* ==========================================================================
+   Wig-preview hero (interactive style carousel)
+   ========================================================================== */
+
+.wig-hero {
+  padding: 40px 0 88px;
+}
+
+.wig-frame {
+  padding: 10px;
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-cta));
+  border-radius: 32px;
+  box-shadow: var(--shadow-soft);
+}
+
+.wig-card-bg {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 120%, #4c1d3d 0%, #26102a 55%, #180a1c 100%);
+  border-radius: 24px;
+  padding: 28px 24px 32px;
+  overflow: hidden;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wig-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 3;
+}
+
+.wig-logo {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.wig-pin {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.wig-stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  margin: 24px 0;
+}
+
+.wig-thumbs {
+  position: static;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 8px 4px 16px;
+  order: 2;
+  width: 100%;
+  scrollbar-width: thin;
+}
+
+.wig-thumb {
+  flex: 0 0 auto;
+  width: 96px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 18px;
+  transition: transform var(--transition);
+}
+
+.wig-thumb-swatch {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border: 2px solid transparent;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.wig-thumb[data-index="1"] .wig-thumb-swatch { background: linear-gradient(135deg, var(--color-secondary), var(--color-primary)); }
+.wig-thumb[data-index="2"] .wig-thumb-swatch { background: linear-gradient(135deg, #F9A8D4, #EC4899); }
+.wig-thumb[data-index="3"] .wig-thumb-swatch { background: linear-gradient(135deg, var(--color-cta), #5B21B6); }
+
+.wig-thumb-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.wig-thumb:hover .wig-thumb-swatch,
+.wig-thumb:focus-visible .wig-thumb-swatch {
+  transform: translateY(-3px);
+}
+
+.wig-thumb[aria-pressed="true"] .wig-thumb-swatch {
+  border-color: #fff;
+  transform: translateY(-3px);
+}
+
+.wig-center {
+  position: relative;
+  order: 1;
+  margin-bottom: 8px;
+}
+
+.wig-center-media {
+  width: 220px;
+  aspect-ratio: 3 / 4;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: background 260ms ease;
+}
+
+.wig-center-icon { opacity: 0.85; }
+
+.wig-center-label {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.wig-price-tag {
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.wig-cart-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: none;
+  background: var(--color-bg);
+  color: var(--color-cta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.wig-cart-btn:hover { background: var(--color-secondary); }
+
+.wig-title {
+  font-family: var(--font-heading);
+  color: #fff;
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 32ch;
+  margin: 8px auto 8px;
+  position: relative;
+  z-index: 3;
+}
+
+.wig-subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.92rem;
+  margin-bottom: 24px;
+}
+
+.wig-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  cursor: pointer;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  background: transparent;
+  transition: border-color var(--transition), background var(--transition);
+  min-height: 44px;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus-visible {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.wig-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.wig-playpause {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: #fff;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+.wig-playpause:hover { transform: scale(1.06); }
+
+.wig-progress-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.wig-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-primary);
+  border-radius: 999px;
+}
+
+.wig-progress-fill.animate {
+  animation: wig-progress 4.5s linear forwards;
+}
+
+.wig-progress-track.paused .wig-progress-fill.animate {
+  animation-play-state: paused;
+}
+
+@keyframes wig-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@media (min-width: 768px) {
+  .wig-card-bg { padding: 36px 48px 40px; }
+
+  .wig-stage {
+    display: block;
+    min-height: 440px;
+  }
+
+  .wig-thumbs {
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: visible;
+    padding: 0;
+    width: auto;
+  }
+
+  .wig-thumb {
+    position: absolute;
+    width: 130px;
+  }
+
+  .wig-thumb-swatch,
+  .wig-thumb[data-index] .wig-thumb-swatch {
+    width: 130px;
+    height: 130px;
+  }
+
+  .wig-thumb[data-index="0"] { left: 0%; top: 8%; transform: rotate(-12deg); }
+  .wig-thumb[data-index="1"] { left: 16%; top: 46%; transform: rotate(-6deg); }
+  .wig-thumb[data-index="2"] { right: 16%; top: 46%; transform: rotate(6deg); }
+  .wig-thumb[data-index="3"] { right: 0%; top: 8%; transform: rotate(12deg); }
+
+  .wig-thumb:hover,
+  .wig-thumb:focus-visible {
+    z-index: 2;
+  }
+
+  .wig-thumb:hover .wig-thumb-swatch,
+  .wig-thumb:focus-visible .wig-thumb-swatch,
+  .wig-thumb[aria-pressed="true"] .wig-thumb-swatch {
+    transform: translateY(-6px) scale(1.03);
+  }
+
+  .wig-center {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    margin-bottom: 0;
+  }
+
+  .wig-center-media {
+    width: 280px;
+    height: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wig-thumb[data-index="0"] { left: 4%; }
+  .wig-thumb[data-index="3"] { right: 4%; }
+}
