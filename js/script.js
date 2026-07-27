@@ -77,15 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var centerLabel = document.getElementById('wig-center-label');
     var priceEl = document.getElementById('wig-price');
     var announceEl = document.getElementById('wig-announce');
-    var playPauseBtn = document.getElementById('wig-playpause');
-    var progressTrack = document.querySelector('.wig-progress-track');
-    var progressFill = document.getElementById('wig-progress-fill');
-    var iconPause = playPauseBtn.querySelector('.icon-pause');
-    var iconPlay = playPauseBtn.querySelector('.icon-play');
+    var stageEl = document.getElementById('wig-stage');
 
     var activeIndex = 0;
-    var playing = true;
-    var ROTATE_MS = 4500;
 
     function showStyle(index) {
       activeIndex = index;
@@ -101,47 +95,38 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    function restartProgress() {
-      progressFill.classList.remove('animate');
-      void progressFill.offsetWidth;
-      progressFill.classList.add('animate');
-    }
-
     function goToNext() {
       showStyle((activeIndex + 1) % styles.length);
-      restartProgress();
+    }
+
+    function goToPrev() {
+      showStyle((activeIndex - 1 + styles.length) % styles.length);
     }
 
     thumbs.forEach(function (thumb) {
       thumb.addEventListener('click', function () {
-        var index = parseInt(thumb.getAttribute('data-index'), 10);
-        showStyle(index);
-        restartProgress();
+        showStyle(parseInt(thumb.getAttribute('data-index'), 10));
       });
     });
 
-    progressFill.addEventListener('animationend', function () {
-      if (playing) goToNext();
+    var wheelCooldown = false;
+    stageEl.addEventListener('wheel', function (e) {
+      if (wheelCooldown || Math.abs(e.deltaY) < 4) return;
+      wheelCooldown = true;
+      if (e.deltaY > 0) goToNext(); else goToPrev();
+      setTimeout(function () { wheelCooldown = false; }, 450);
+    }, { passive: true });
+
+    stageEl.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        goToNext();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        goToPrev();
+      }
     });
 
-    playPauseBtn.addEventListener('click', function () {
-      playing = !playing;
-      progressTrack.classList.toggle('paused', !playing);
-      playPauseBtn.setAttribute('aria-pressed', playing ? 'false' : 'true');
-      playPauseBtn.setAttribute('aria-label', playing ? 'Pause style rotation' : 'Resume style rotation');
-      iconPause.hidden = !playing;
-      iconPlay.hidden = playing;
-    });
-
-    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     showStyle(0);
-    if (!prefersReducedMotion) {
-      restartProgress();
-    } else {
-      playing = false;
-      progressTrack.classList.add('paused');
-      iconPause.hidden = true;
-      iconPlay.hidden = false;
-    }
   }
 });

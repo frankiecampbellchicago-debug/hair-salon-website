@@ -747,56 +747,30 @@ footer a:hover { color: #fff; }
   background: rgba(255, 255, 255, 0.08);
 }
 
-.wig-controls {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: auto;
-}
-
-.wig-playpause {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: none;
-  background: #fff;
-  color: var(--color-text);
+.wig-scroll-hint {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: transform var(--transition);
+  gap: 10px;
+  margin-top: auto;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.82rem;
+  font-weight: 500;
 }
 
-.wig-playpause:hover { transform: scale(1.06); }
-
-.wig-progress-track {
-  flex: 1;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  overflow: hidden;
+.wig-scroll-dot {
+  animation: wig-scroll-bounce 1.8s ease-in-out infinite;
 }
 
-.wig-progress-fill {
-  height: 100%;
-  width: 0%;
-  background: var(--color-primary);
-  border-radius: 999px;
+@keyframes wig-scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(4px); opacity: 0.5; }
 }
 
-.wig-progress-fill.animate {
-  animation: wig-progress 4.5s linear forwards;
-}
-
-.wig-progress-track.paused .wig-progress-fill.animate {
-  animation-play-state: paused;
-}
-
-@keyframes wig-progress {
-  from { width: 0%; }
-  to { width: 100%; }
+.wig-stage:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 8px;
+  border-radius: 16px;
 }
 
 @media (min-width: 768px) {
