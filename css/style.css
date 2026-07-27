@@ -614,6 +614,8 @@ footer a:hover { color: #fff; }
   justify-content: center;
   min-height: 240px;
   margin: 12px 0;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
 }
 
 .wig-thumbs {
@@ -686,6 +688,22 @@ footer a:hover { color: #fff; }
   position: relative;
   order: 1;
   margin-bottom: 8px;
+  z-index: 5;
+  transform-style: preserve-3d;
+}
+
+/* Soft bloom behind the hero card so it separates from the backdrop. */
+.wig-center-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  height: 130%;
+  transform: translate(-50%, -50%) translateZ(-60px);
+  background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.6) 0%, rgba(139, 92, 246, 0.35) 45%, transparent 72%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .wig-center-media {
@@ -694,10 +712,20 @@ footer a:hover { color: #fff; }
   aspect-ratio: 3 / 4;
   border-radius: 22px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
   overflow: hidden;
   color: rgba(255, 255, 255, 0.9);
   transition: background 260ms ease;
+}
+
+.wig-center-media.is-swapping {
+  animation: wig-pop 600ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+@keyframes wig-pop {
+  0%   { transform: scale(0.9) rotate(-1.5deg); opacity: 0.45; }
+  55%  { transform: scale(1.05) rotate(0.5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
 .wig-center-img {
@@ -712,10 +740,10 @@ footer a:hover { color: #fff; }
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   z-index: 2;
-  padding: 16px 16px 14px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+  padding: 14px 16px 22px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent);
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 600;
@@ -852,23 +880,42 @@ footer a:hover { color: #fff; }
     width: auto;
   }
 
+  /* Cards ride a shared circular arc whose pivot sits far below the stage.
+     Changing --slot rotates every card along that arc at once. */
+  .wig-thumbs {
+    --r: 1275px;
+    --step: 5deg;
+    --thumb: 96px;
+  }
+
   .wig-thumb {
+    --slot: 0;
     position: absolute;
-    width: 140px;
+    left: 50%;
+    top: 50%;
+    width: var(--thumb);
+    margin-left: calc(var(--thumb) / -2);
+    margin-top: calc(var(--thumb) / -2);
+    transform:
+      translateY(var(--r))
+      rotate(calc(var(--slot) * var(--step)))
+      translateY(calc(-1 * var(--r)));
+    transition: transform 750ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                opacity 400ms ease;
   }
 
   .wig-thumb-swatch,
   .wig-thumb[data-index] .wig-thumb-swatch {
-    width: 140px;
-    height: 140px;
+    width: var(--thumb);
+    height: var(--thumb);
   }
 
-  .wig-thumb[data-index="4"] { left: 0%; top: 50%; margin-top: -70px; transform: rotate(-16deg); }
-  .wig-thumb[data-index="0"] { left: 15%; top: 50%; margin-top: -70px; transform: rotate(-11deg); }
-  .wig-thumb[data-index="1"] { left: 29%; top: 50%; margin-top: -70px; transform: rotate(-6deg); }
-  .wig-thumb[data-index="2"] { right: 29%; top: 50%; margin-top: -70px; transform: rotate(6deg); }
-  .wig-thumb[data-index="3"] { right: 15%; top: 50%; margin-top: -70px; transform: rotate(11deg); }
-  .wig-thumb[data-index="5"] { right: 0%; top: 50%; margin-top: -70px; transform: rotate(16deg); }
+  /* The active style is represented by the big center card, so its
+     thumbnail dissolves into that spot instead of sitting behind it. */
+  .wig-thumb[aria-pressed="true"] {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   .wig-thumb:hover,
   .wig-thumb:focus-visible {
@@ -876,26 +923,45 @@ footer a:hover { color: #fff; }
   }
 
   .wig-thumb:hover .wig-thumb-swatch,
-  .wig-thumb:focus-visible .wig-thumb-swatch,
-  .wig-thumb[aria-pressed="true"] .wig-thumb-swatch {
-    transform: translateY(-6px) scale(1.03);
+  .wig-thumb:focus-visible .wig-thumb-swatch {
+    transform: translateY(-6px) scale(1.06);
   }
 
+  /* --px/--py are driven by the pointer-parallax handler in script.js */
   .wig-center {
+    --px: 0px;
+    --py: 0px;
+    --rx: 0deg;
+    --ry: 0deg;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
     margin-bottom: 0;
+    transform:
+      translate(-50%, -50%)
+      translate3d(var(--px), var(--py), 90px)
+      rotateX(var(--rx))
+      rotateY(var(--ry));
+    transition: transform 220ms ease-out;
   }
 
   .wig-center-media {
     width: auto;
     height: 280px;
   }
+
+  .wig-thumbs {
+    --tx: 0px;
+    --ty: 0px;
+    transform: translate3d(var(--tx), var(--ty), 0);
+    transition: transform 320ms ease-out;
+  }
 }
 
 @media (min-width: 1024px) {
-  .wig-thumb[data-index="4"] { left: 2%; }
-  .wig-thumb[data-index="5"] { right: 2%; }
+  .wig-thumbs { --r: 1750px; --thumb: 120px; }
+}
+
+@media (min-width: 1280px) {
+  .wig-thumbs { --r: 2320px; --thumb: 140px; }
 }

@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
       { name: 'Sleek Straight', price: '$160' },
       { name: 'Voluminous Curls', price: '$240' },
       { name: 'Pixie Cut', price: '$150' },
-      { name: 'Beach Waves', price: '$200' }
+      { name: 'Beach Waves', price: '$200' },
+      { name: 'Layered Shag', price: '$190' }
     ];
 
     var gradients = [
@@ -73,7 +74,8 @@ document.addEventListener('DOMContentLoaded', function () {
       'linear-gradient(135deg, #C4B5FD, #8B5CF6)',
       'linear-gradient(135deg, #8B5CF6, #5B21B6)',
       'linear-gradient(135deg, #FBCFE8, #EC4899)',
-      'linear-gradient(135deg, #F472B6, #C026D3)'
+      'linear-gradient(135deg, #F472B6, #C026D3)',
+      'linear-gradient(135deg, #F9A8D4, #DB2777)'
     ];
 
     var images = [
@@ -82,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
       'https://placehold.co/400x600/8B5CF6/FFFFFF?text=Sleek+Straight',
       'https://placehold.co/400x600/5B21B6/FFFFFF?text=Voluminous+Curls',
       'https://placehold.co/400x600/EC4899/FFFFFF?text=Pixie+Cut',
-      'https://placehold.co/400x600/C026D3/FFFFFF?text=Beach+Waves'
+      'https://placehold.co/400x600/C026D3/FFFFFF?text=Beach+Waves',
+      'https://placehold.co/400x600/DB2777/FFFFFF?text=Layered+Shag'
     ];
 
     var thumbs = Array.prototype.slice.call(document.querySelectorAll('.wig-thumb'));
@@ -93,9 +96,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var announceEl = document.getElementById('wig-announce');
     var stageEl = document.getElementById('wig-stage');
 
+    var centerEl = document.getElementById('wig-center');
+    var thumbsEl = document.getElementById('wig-thumbs');
+    var total = styles.length;
+    var half = Math.floor(total / 2);
     var activeIndex = 0;
 
-    function showStyle(index) {
+    function showStyle(index, animate) {
       activeIndex = index;
       var style = styles[index];
 
@@ -106,22 +113,36 @@ document.addEventListener('DOMContentLoaded', function () {
       priceEl.textContent = style.price;
       announceEl.textContent = 'Now viewing: ' + style.name + ', from ' + style.price;
 
-      thumbs.forEach(function (thumb, i) {
+      if (animate) {
+        centerMedia.classList.remove('is-swapping');
+        void centerMedia.offsetWidth;
+        centerMedia.classList.add('is-swapping');
+      }
+
+      thumbs.forEach(function (thumb) {
+        var i = parseInt(thumb.getAttribute('data-index'), 10);
+
+        // Signed distance from the active card, wrapped to [-half, half],
+        // so the whole arc rotates by one seat per step.
+        var rel = ((i - index) % total + total) % total;
+        if (rel > half) rel -= total;
+
+        thumb.style.setProperty('--slot', rel);
         thumb.setAttribute('aria-pressed', i === index ? 'true' : 'false');
       });
     }
 
     function goToNext() {
-      showStyle((activeIndex + 1) % styles.length);
+      showStyle((activeIndex + 1) % total, true);
     }
 
     function goToPrev() {
-      showStyle((activeIndex - 1 + styles.length) % styles.length);
+      showStyle((activeIndex - 1 + total) % total, true);
     }
 
     thumbs.forEach(function (thumb) {
       thumb.addEventListener('click', function () {
-        showStyle(parseInt(thumb.getAttribute('data-index'), 10));
+        showStyle(parseInt(thumb.getAttribute('data-index'), 10), true);
       });
     });
 
@@ -148,6 +169,42 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    showStyle(0);
+    // Pointer parallax: the arc drifts one way, the hero card leans the
+    // other, which reads as depth between the two planes.
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var desktop = window.matchMedia('(min-width: 768px)');
+    var parallaxFrame = null;
+
+    function resetParallax() {
+      centerEl.style.setProperty('--px', '0px');
+      centerEl.style.setProperty('--py', '0px');
+      centerEl.style.setProperty('--rx', '0deg');
+      centerEl.style.setProperty('--ry', '0deg');
+      thumbsEl.style.setProperty('--tx', '0px');
+      thumbsEl.style.setProperty('--ty', '0px');
+    }
+
+    stageEl.addEventListener('mousemove', function (e) {
+      if (reducedMotion.matches || !desktop.matches) return;
+      if (parallaxFrame) return;
+
+      parallaxFrame = requestAnimationFrame(function () {
+        parallaxFrame = null;
+        var rect = stageEl.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        centerEl.style.setProperty('--px', (x * 34).toFixed(1) + 'px');
+        centerEl.style.setProperty('--py', (y * 20).toFixed(1) + 'px');
+        centerEl.style.setProperty('--ry', (x * 10).toFixed(1) + 'deg');
+        centerEl.style.setProperty('--rx', (y * -7).toFixed(1) + 'deg');
+        thumbsEl.style.setProperty('--tx', (x * -26).toFixed(1) + 'px');
+        thumbsEl.style.setProperty('--ty', (y * -14).toFixed(1) + 'px');
+      });
+    });
+
+    stageEl.addEventListener('mouseleave', resetParallax);
+
+    showStyle(0, false);
   }
 });
