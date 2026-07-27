@@ -629,7 +629,7 @@ footer a:hover { color: #fff; }
 
 .wig-thumb {
   flex: 0 0 auto;
-  width: 96px;
+  width: 108px;
   border: none;
   background: none;
   cursor: pointer;
@@ -640,8 +640,8 @@ footer a:hover { color: #fff; }
 
 .wig-thumb-swatch {
   display: block;
-  width: 96px;
-  height: 96px;
+  width: 108px;
+  height: 108px;
   border-radius: 18px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
@@ -821,7 +821,7 @@ footer a:hover { color: #fff; }
 
   .wig-stage {
     display: block;
-    min-height: 280px;
+    min-height: 320px;
   }
 
   .wig-thumbs {
@@ -835,21 +835,21 @@ footer a:hover { color: #fff; }
 
   .wig-thumb {
     position: absolute;
-    width: 100px;
+    width: 120px;
   }
 
   .wig-thumb-swatch,
   .wig-thumb[data-index] .wig-thumb-swatch {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
   }
 
-  .wig-thumb[data-index="4"] { left: 0%; top: 50%; margin-top: -50px; transform: rotate(-16deg); }
-  .wig-thumb[data-index="0"] { left: 16%; top: 50%; margin-top: -50px; transform: rotate(-11deg); }
-  .wig-thumb[data-index="1"] { left: 32%; top: 50%; margin-top: -50px; transform: rotate(-6deg); }
-  .wig-thumb[data-index="2"] { right: 32%; top: 50%; margin-top: -50px; transform: rotate(6deg); }
-  .wig-thumb[data-index="3"] { right: 16%; top: 50%; margin-top: -50px; transform: rotate(11deg); }
-  .wig-thumb[data-index="5"] { right: 0%; top: 50%; margin-top: -50px; transform: rotate(16deg); }
+  .wig-thumb[data-index="4"] { left: 0%; top: 50%; margin-top: -60px; transform: rotate(-16deg); }
+  .wig-thumb[data-index="0"] { left: 18%; top: 50%; margin-top: -60px; transform: rotate(-11deg); }
+  .wig-thumb[data-index="1"] { left: 36%; top: 50%; margin-top: -60px; transform: rotate(-6deg); }
+  .wig-thumb[data-index="2"] { right: 36%; top: 50%; margin-top: -60px; transform: rotate(6deg); }
+  .wig-thumb[data-index="3"] { right: 18%; top: 50%; margin-top: -60px; transform: rotate(11deg); }
+  .wig-thumb[data-index="5"] { right: 0%; top: 50%; margin-top: -60px; transform: rotate(16deg); }
 
   .wig-thumb:hover,
   .wig-thumb:focus-visible {
@@ -872,7 +872,7 @@ footer a:hover { color: #fff; }
 
   .wig-center-media {
     width: auto;
-    height: 260px;
+    height: 280px;
   }
 }
 
