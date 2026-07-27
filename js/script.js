@@ -76,8 +76,18 @@ document.addEventListener('DOMContentLoaded', function () {
       'linear-gradient(135deg, #F472B6, #C026D3)'
     ];
 
+    var images = [
+      'https://placehold.co/400x600/8B5CF6/FFFFFF?text=Classic+Bob',
+      'https://placehold.co/400x600/EC4899/FFFFFF?text=Soft+Waves',
+      'https://placehold.co/400x600/8B5CF6/FFFFFF?text=Sleek+Straight',
+      'https://placehold.co/400x600/5B21B6/FFFFFF?text=Voluminous+Curls',
+      'https://placehold.co/400x600/EC4899/FFFFFF?text=Pixie+Cut',
+      'https://placehold.co/400x600/C026D3/FFFFFF?text=Beach+Waves'
+    ];
+
     var thumbs = Array.prototype.slice.call(document.querySelectorAll('.wig-thumb'));
     var centerMedia = document.getElementById('wig-center-media');
+    var centerImg = document.getElementById('wig-center-img');
     var centerLabel = document.getElementById('wig-center-label');
     var priceEl = document.getElementById('wig-price');
     var announceEl = document.getElementById('wig-announce');
@@ -90,6 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var style = styles[index];
 
       centerMedia.style.background = gradients[index];
+      centerImg.src = images[index];
+      centerImg.alt = 'Model wearing the ' + style.name + ' style';
       centerLabel.textContent = style.name;
       priceEl.textContent = style.price;
       announceEl.textContent = 'Now viewing: ' + style.name + ', from ' + style.price;
