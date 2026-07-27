@@ -650,8 +650,10 @@ footer a:hover { color: #fff; }
 }
 
 .wig-thumb[data-index="1"] .wig-thumb-swatch { background: linear-gradient(135deg, var(--color-secondary), var(--color-primary)); }
-.wig-thumb[data-index="2"] .wig-thumb-swatch { background: linear-gradient(135deg, #F9A8D4, #EC4899); }
+.wig-thumb[data-index="2"] .wig-thumb-swatch { background: linear-gradient(135deg, #C4B5FD, #8B5CF6); }
 .wig-thumb[data-index="3"] .wig-thumb-swatch { background: linear-gradient(135deg, var(--color-cta), #5B21B6); }
+.wig-thumb[data-index="4"] .wig-thumb-swatch { background: linear-gradient(135deg, #FBCFE8, #EC4899); }
+.wig-thumb[data-index="5"] .wig-thumb-swatch { background: linear-gradient(135deg, #F472B6, #C026D3); }
 
 .wig-thumb-label {
   display: block;
@@ -842,10 +844,12 @@ footer a:hover { color: #fff; }
     height: 100px;
   }
 
-  .wig-thumb[data-index="0"] { left: 0%; top: 50%; margin-top: -50px; transform: rotate(-12deg); }
-  .wig-thumb[data-index="1"] { left: 24%; top: 50%; margin-top: -50px; transform: rotate(-6deg); }
-  .wig-thumb[data-index="2"] { right: 24%; top: 50%; margin-top: -50px; transform: rotate(6deg); }
-  .wig-thumb[data-index="3"] { right: 0%; top: 50%; margin-top: -50px; transform: rotate(12deg); }
+  .wig-thumb[data-index="4"] { left: 0%; top: 50%; margin-top: -50px; transform: rotate(-16deg); }
+  .wig-thumb[data-index="0"] { left: 16%; top: 50%; margin-top: -50px; transform: rotate(-11deg); }
+  .wig-thumb[data-index="1"] { left: 32%; top: 50%; margin-top: -50px; transform: rotate(-6deg); }
+  .wig-thumb[data-index="2"] { right: 32%; top: 50%; margin-top: -50px; transform: rotate(6deg); }
+  .wig-thumb[data-index="3"] { right: 16%; top: 50%; margin-top: -50px; transform: rotate(11deg); }
+  .wig-thumb[data-index="5"] { right: 0%; top: 50%; margin-top: -50px; transform: rotate(16deg); }
 
   .wig-thumb:hover,
   .wig-thumb:focus-visible {
@@ -873,6 +877,6 @@ footer a:hover { color: #fff; }
 }
 
 @media (min-width: 1024px) {
-  .wig-thumb[data-index="0"] { left: 4%; }
-  .wig-thumb[data-index="3"] { right: 4%; }
+  .wig-thumb[data-index="4"] { left: 2%; }
+  .wig-thumb[data-index="5"] { right: 2%; }
 }

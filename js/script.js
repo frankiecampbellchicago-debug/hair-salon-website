@@ -62,14 +62,18 @@ document.addEventListener('DOMContentLoaded', function () {
       { name: 'Classic Bob', price: '$180' },
       { name: 'Soft Waves', price: '$220' },
       { name: 'Sleek Straight', price: '$160' },
-      { name: 'Voluminous Curls', price: '$240' }
+      { name: 'Voluminous Curls', price: '$240' },
+      { name: 'Pixie Cut', price: '$150' },
+      { name: 'Beach Waves', price: '$200' }
     ];
 
     var gradients = [
       'linear-gradient(135deg, #EC4899, #8B5CF6)',
       'linear-gradient(135deg, #F9A8D4, #EC4899)',
-      'linear-gradient(135deg, #F9A8D4, #EC4899)',
-      'linear-gradient(135deg, #8B5CF6, #5B21B6)'
+      'linear-gradient(135deg, #C4B5FD, #8B5CF6)',
+      'linear-gradient(135deg, #8B5CF6, #5B21B6)',
+      'linear-gradient(135deg, #FBCFE8, #EC4899)',
+      'linear-gradient(135deg, #F472B6, #C026D3)'
     ];
 
     var thumbs = Array.prototype.slice.call(document.querySelectorAll('.wig-thumb'));
