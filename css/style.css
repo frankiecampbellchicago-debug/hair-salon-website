@@ -835,21 +835,21 @@ footer a:hover { color: #fff; }
 
   .wig-thumb {
     position: absolute;
-    width: 120px;
+    width: 140px;
   }
 
   .wig-thumb-swatch,
   .wig-thumb[data-index] .wig-thumb-swatch {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
 
-  .wig-thumb[data-index="4"] { left: 0%; top: 50%; margin-top: -60px; transform: rotate(-16deg); }
-  .wig-thumb[data-index="0"] { left: 18%; top: 50%; margin-top: -60px; transform: rotate(-11deg); }
-  .wig-thumb[data-index="1"] { left: 36%; top: 50%; margin-top: -60px; transform: rotate(-6deg); }
-  .wig-thumb[data-index="2"] { right: 36%; top: 50%; margin-top: -60px; transform: rotate(6deg); }
-  .wig-thumb[data-index="3"] { right: 18%; top: 50%; margin-top: -60px; transform: rotate(11deg); }
-  .wig-thumb[data-index="5"] { right: 0%; top: 50%; margin-top: -60px; transform: rotate(16deg); }
+  .wig-thumb[data-index="4"] { left: 0%; top: 50%; margin-top: -70px; transform: rotate(-16deg); }
+  .wig-thumb[data-index="0"] { left: 15%; top: 50%; margin-top: -70px; transform: rotate(-11deg); }
+  .wig-thumb[data-index="1"] { left: 29%; top: 50%; margin-top: -70px; transform: rotate(-6deg); }
+  .wig-thumb[data-index="2"] { right: 29%; top: 50%; margin-top: -70px; transform: rotate(6deg); }
+  .wig-thumb[data-index="3"] { right: 15%; top: 50%; margin-top: -70px; transform: rotate(11deg); }
+  .wig-thumb[data-index="5"] { right: 0%; top: 50%; margin-top: -70px; transform: rotate(16deg); }
 
   .wig-thumb:hover,
   .wig-thumb:focus-visible {
