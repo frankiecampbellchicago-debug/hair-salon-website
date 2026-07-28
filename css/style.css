@@ -403,9 +403,8 @@ input:focus, select:focus, textarea:focus {
 
 /* Footer */
 footer {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCE7F3 100%);
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text);
+  background: var(--color-text);
+  color: #fff;
   padding: 56px 0 28px;
 }
 
@@ -422,10 +421,10 @@ footer h4 {
   font-size: 1.1rem;
 }
 
-footer .logo { color: var(--color-text); margin-bottom: 12px; }
+footer .logo { color: #fff; margin-bottom: 12px; }
 
-footer p, footer a, footer ul li {
-  color: var(--color-text-muted);
+footer p, footer a {
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.92rem;
 }
 
@@ -433,14 +432,14 @@ footer ul { list-style: none; }
 
 footer ul li { margin-bottom: 10px; }
 
-footer a:hover { color: var(--color-primary); }
+footer a:hover { color: #fff; }
 
 .footer-bottom {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 24px;
   text-align: center;
   font-size: 0.85rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Page header (for interior pages) */
@@ -669,14 +668,14 @@ footer a:hover { color: var(--color-primary); }
 
 .wig-frame {
   padding: 8px;
-  background: linear-gradient(135deg, #FBCFE8, #E9D5FF);
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-cta));
   border-radius: 28px;
   box-shadow: var(--shadow-soft);
 }
 
 .wig-card-bg {
   position: relative;
-  background: radial-gradient(ellipse at 50% 115%, #FCE7F3 0%, #FDF2F8 45%, #FFFFFF 100%);
+  background: radial-gradient(ellipse at 50% 120%, #4c1d3d 0%, #26102a 55%, #180a1c 100%);
   border-radius: 20px;
   padding: 16px 20px 14px;
   overflow: hidden;
@@ -694,7 +693,7 @@ footer a:hover { color: var(--color-primary); }
 
 .wig-logo {
   font-family: var(--font-heading);
-  color: var(--color-text);
+  color: #fff;
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -709,9 +708,8 @@ footer a:hover { color: var(--color-primary); }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
   font-size: 0.78rem;
   font-weight: 500;
   padding: 8px 14px;
@@ -722,11 +720,11 @@ footer a:hover { color: var(--color-primary); }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--color-cta);
-  color: #fff;
+  background: #fff;
+  color: var(--color-text);
   font-size: 0.78rem;
   font-weight: 600;
-  padding: 9px 16px;
+  padding: 8px 16px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
@@ -736,7 +734,7 @@ footer a:hover { color: var(--color-primary); }
 .wig-next-btn:hover,
 .wig-next-btn:focus-visible {
   transform: translateY(-1px);
-  box-shadow: var(--shadow-soft-hover);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .wig-next-btn svg {
@@ -787,7 +785,7 @@ footer a:hover { color: var(--color-primary); }
   height: 108px;
   border-radius: 18px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
-  box-shadow: 0 10px 24px rgba(131, 24, 67, 0.18);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
   border: 2px solid transparent;
   overflow: hidden;
   transition: border-color var(--transition), transform var(--transition);
@@ -808,9 +806,9 @@ footer a:hover { color: var(--color-primary); }
 
 .wig-thumb-label {
   display: block;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   margin-top: 8px;
 }
@@ -821,7 +819,7 @@ footer a:hover { color: var(--color-primary); }
 }
 
 .wig-thumb[aria-pressed="true"] .wig-thumb-swatch {
-  border-color: var(--color-cta);
+  border-color: #fff;
   transform: translateY(-3px);
 }
 
@@ -841,8 +839,8 @@ footer a:hover { color: var(--color-primary); }
   width: 150%;
   height: 130%;
   transform: translate(-50%, -50%) translateZ(-60px);
-  background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.38) 0%, rgba(139, 92, 246, 0.22) 45%, transparent 72%);
-  filter: blur(44px);
+  background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.6) 0%, rgba(139, 92, 246, 0.35) 45%, transparent 72%);
+  filter: blur(40px);
   pointer-events: none;
   z-index: -1;
 }
@@ -853,7 +851,7 @@ footer a:hover { color: var(--color-primary); }
   aspect-ratio: 3 / 4;
   border-radius: 22px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-cta));
-  box-shadow: 0 26px 60px rgba(131, 24, 67, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.12);
   overflow: hidden;
   color: rgba(255, 255, 255, 0.9);
   transition: background 260ms ease;
@@ -927,7 +925,7 @@ footer a:hover { color: var(--color-primary); }
 
 .wig-title {
   font-family: var(--font-heading);
-  color: var(--color-text);
+  color: #fff;
   text-align: center;
   font-size: clamp(1.2rem, 2.2vw, 1.7rem);
   font-weight: 600;
@@ -940,7 +938,7 @@ footer a:hover { color: var(--color-primary); }
 
 .wig-subtitle {
   text-align: center;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.85rem;
   margin-bottom: 12px;
 }
@@ -962,18 +960,17 @@ footer a:hover { color: var(--color-primary); }
   font-weight: 600;
   font-size: 0.98rem;
   cursor: pointer;
-  border: 1.5px solid var(--color-border);
-  color: var(--color-text);
-  background: rgba(255, 255, 255, 0.7);
-  transition: border-color var(--transition), background var(--transition), color var(--transition);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  background: transparent;
+  transition: border-color var(--transition), background var(--transition);
   min-height: 44px;
 }
 
 .btn-outline-light:hover,
 .btn-outline-light:focus-visible {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .wig-scroll-hint {
@@ -982,7 +979,7 @@ footer a:hover { color: var(--color-primary); }
   justify-content: center;
   gap: 10px;
   margin-top: auto;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.55);
   font-size: 0.82rem;
   font-weight: 500;
 }
@@ -997,7 +994,7 @@ footer a:hover { color: var(--color-primary); }
 }
 
 .wig-stage:focus-visible {
-  outline: 2px solid var(--color-cta);
+  outline: 2px solid #fff;
   outline-offset: 8px;
   border-radius: 16px;
 }
