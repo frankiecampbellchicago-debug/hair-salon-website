@@ -187,27 +187,64 @@
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section rev-section" id="reviews">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">Testimonials</span>
-          <h2>Loved by our clients</h2>
-        </div>
-        <div class="grid-3">
-          <div class="testimonial">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"Best haircut I've had in years. The team actually listens to what you want."</p>
-            <div class="testimonial-author">Maria T.</div>
-          </div>
-          <div class="testimonial">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"My balayage came out exactly like the photo I brought in. Obsessed."</p>
-            <div class="testimonial-author">Jasmine R.</div>
-          </div>
-          <div class="testimonial">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p>"Clean, relaxing space and always on time. My go-to salon now."</p>
-            <div class="testimonial-author">Devon K.</div>
+        <div class="rev">
+          <div class="rev__content">
+
+            <div class="rev__top">
+              <span class="rev__label">See what people are saying</span>
+              <div class="rev__nav">
+                <button class="rev__arrow" id="rev-prev" aria-label="Previous review">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                </button>
+                <span class="rev__count"><span id="rev-current">1</span> / <span id="rev-total">6</span></span>
+                <button class="rev__arrow" id="rev-next" aria-label="Next review">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="rev__body" id="rev-body" aria-live="polite">
+              <div class="rev__stars" id="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote class="rev__quote" id="rev-quote">"Best haircut I've had in years. The team actually listens to what you want instead of just doing their own thing."</blockquote>
+              <p class="rev__by">
+                <b id="rev-name">Maria T.</b>
+                <span id="rev-meta">Signature haircut &middot; Downtown Studio</span>
+              </p>
+            </div>
+
+            <div class="rev__links">
+              <span class="rev__verified">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                Real reviews from Lumière clients
+              </span>
+              <a href="contact.html" class="rev__link">Book your visit</a>
+            </div>
+
+            <div class="rev__badges">
+              <div class="rev__badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg>
+                <h3>Licensed Stylists</h3>
+                <p>Every stylist is certified and insured.</p>
+              </div>
+              <div class="rev__badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <h3>On Time, Every Time</h3>
+                <p>We start when we say we will.</p>
+              </div>
+              <div class="rev__badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 7h6M9 12h6M9 17h3"/></svg>
+                <h3>Upfront Pricing</h3>
+                <p>You know the price before we start.</p>
+              </div>
+              <div class="rev__badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+                <h3>Satisfaction Guaranteed</h3>
+                <p>Not happy? We'll make it right.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

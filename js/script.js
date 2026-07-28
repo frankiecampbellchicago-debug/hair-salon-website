@@ -56,6 +56,73 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var revBody = document.getElementById('rev-body');
+  if (revBody) {
+    var reviews = [
+      {
+        quote: "Best haircut I've had in years. The team actually listens to what you want instead of just doing their own thing.",
+        name: 'Maria T.',
+        meta: 'Signature haircut · Downtown Studio'
+      },
+      {
+        quote: "My balayage came out exactly like the photo I brought in. Three months later it's still growing out beautifully.",
+        name: 'Jasmine R.',
+        meta: 'Balayage · Downtown Studio'
+      },
+      {
+        quote: "Clean, relaxing space and they always start on time. I'm in and out on my lunch break without feeling rushed.",
+        name: 'Devon K.',
+        meta: 'Men’s cut · Downtown Studio'
+      },
+      {
+        quote: "They talked me out of a color that would have wrecked my hair and suggested something better. That honesty earned my trust.",
+        name: 'Priya N.',
+        meta: 'Color consultation · Downtown Studio'
+      },
+      {
+        quote: "The keratin treatment completely changed my mornings. My routine went from forty minutes down to about ten.",
+        name: 'Alicia M.',
+        meta: 'Keratin smoothing · Downtown Studio'
+      },
+      {
+        quote: "Booked for my wedding party and every single one of us looked incredible. They kept the whole morning on schedule.",
+        name: 'Rachel B.',
+        meta: 'Special occasion styling · Downtown Studio'
+      }
+    ];
+
+    var revQuote = document.getElementById('rev-quote');
+    var revName = document.getElementById('rev-name');
+    var revMeta = document.getElementById('rev-meta');
+    var revCurrent = document.getElementById('rev-current');
+    var revIndex = 0;
+
+    document.getElementById('rev-total').textContent = reviews.length;
+
+    function showReview(index) {
+      revIndex = (index % reviews.length + reviews.length) % reviews.length;
+      var review = reviews[revIndex];
+
+      revBody.classList.add('is-swapping');
+
+      setTimeout(function () {
+        revQuote.textContent = '"' + review.quote + '"';
+        revName.textContent = review.name;
+        revMeta.textContent = review.meta;
+        revCurrent.textContent = revIndex + 1;
+        revBody.classList.remove('is-swapping');
+      }, 200);
+    }
+
+    document.getElementById('rev-next').addEventListener('click', function () {
+      showReview(revIndex + 1);
+    });
+
+    document.getElementById('rev-prev').addEventListener('click', function () {
+      showReview(revIndex - 1);
+    });
+  }
+
   var svcGrid = document.getElementById('svc-grid');
   if (svcGrid) {
     var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.svc-filter'));

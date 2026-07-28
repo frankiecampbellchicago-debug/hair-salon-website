@@ -524,6 +524,195 @@ footer a:hover { color: #fff; }
 }
 
 /* ==========================================================================
+   Review spotlight (one featured review, stepped through with arrows)
+   ========================================================================== */
+
+.rev-section { padding: 72px 0; }
+
+.rev {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  /* Swap this for a real salon photo + dark scrim when photography lands. */
+  background:
+    radial-gradient(ellipse at 85% 20%, rgba(139, 92, 246, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 90%, rgba(236, 72, 153, 0.28) 0%, transparent 55%),
+    linear-gradient(120deg, #2a0f24 0%, #1d0a1f 55%, #14060f 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+.rev__content {
+  position: relative;
+  padding: clamp(32px, 4.5vw, 56px);
+}
+
+.rev__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.rev__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.rev__nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rev__arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.rev__arrow:hover,
+.rev__arrow:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.rev__count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 46px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.rev__body {
+  max-width: 780px;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.rev__body.is-swapping {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.rev__stars {
+  color: var(--color-secondary);
+  letter-spacing: 4px;
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+}
+
+.rev__quote {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.6vw, 2.05rem);
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+.rev__by {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.62);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rev__by b {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.rev__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin: 38px 0 32px;
+  font-size: 0.86rem;
+}
+
+.rev__verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 500;
+}
+
+.rev__verified svg { color: var(--color-secondary); flex-shrink: 0; }
+
+.rev__link {
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 3px;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.rev__link:hover,
+.rev__link:focus-visible {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.rev__badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.rev__badge {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 20px;
+  color: #fff;
+}
+
+.rev__badge svg { color: var(--color-secondary); margin-bottom: 12px; }
+
+.rev__badge h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.rev__badge p {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .rev__badges { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .rev__badges { grid-template-columns: 1fr; }
+  .rev__top { flex-direction: column; align-items: flex-start; }
+}
+
+/* ==========================================================================
    Services gallery (photo cards with tag + overlay caption)
    ========================================================================== */
 
