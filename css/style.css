@@ -361,6 +361,25 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Forms */
+
+/* Pairs short fields two-up so the booking form fits without scrolling.
+   Items marked --full span the whole width. */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  align-items: start;
+}
+
+.form-grid .form-group--full,
+.form-grid > button,
+.form-grid > .form-note,
+.form-grid > .form-success {
+  grid-column: 1 / -1;
+}
+
+.form-grid > button { justify-self: start; }
+
 .form-group {
   margin-bottom: 14px;
 }
@@ -385,7 +404,7 @@ input, select, textarea {
   min-height: 44px;
 }
 
-textarea { min-height: 84px; resize: vertical; }
+textarea { min-height: 70px; resize: vertical; }
 
 input:focus, select:focus, textarea:focus {
   outline: none;
@@ -394,9 +413,10 @@ input:focus, select:focus, textarea:focus {
 }
 
 .form-note {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: var(--color-text-muted);
-  margin-top: 8px;
+  line-height: 1.45;
+  margin-top: 10px;
 }
 
 .form-success {
@@ -452,7 +472,7 @@ footer a:hover { color: #fff; }
 
 /* Page header (for interior pages) */
 .page-header {
-  padding: 36px 0 24px;
+  padding: 28px 0 20px;
   text-align: center;
 }
 
@@ -522,6 +542,7 @@ footer a:hover { color: #fff; }
   .grid-3 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
   .section { padding: 44px 0; }
 }
 
