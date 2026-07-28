@@ -527,7 +527,7 @@ footer a:hover { color: #fff; }
    Review spotlight (one featured review, stepped through with arrows)
    ========================================================================== */
 
-.rev-section { padding: 72px 0; }
+.rev-section { padding: 56px 0; }
 
 .rev {
   position: relative;
@@ -546,23 +546,23 @@ footer a:hover { color: #fff; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 60%;
 }
 
-/* Angled scrim: heavy on the left where the copy sits, easing off to the
-   right so the salon photo stays visible. */
+/* Angled scrim: dark enough on the left to carry white text, easing off
+   sharply to the right so the room stays legible. */
 .rev__bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(105deg, rgba(20, 6, 15, 0.94) 6%, rgba(20, 6, 15, 0.78) 45%, rgba(20, 6, 15, 0.42) 100%),
-    linear-gradient(180deg, rgba(20, 6, 15, 0.35) 0%, transparent 30%);
+    linear-gradient(100deg, rgba(20, 6, 15, 0.9) 4%, rgba(20, 6, 15, 0.6) 46%, rgba(20, 6, 15, 0.18) 100%),
+    linear-gradient(180deg, rgba(20, 6, 15, 0.28) 0%, transparent 26%);
 }
 
 .rev__content {
   position: relative;
-  padding: clamp(32px, 4.5vw, 56px);
+  padding: clamp(26px, 3.2vw, 42px);
 }
 
 .rev__top {
@@ -619,7 +619,7 @@ footer a:hover { color: #fff; }
 }
 
 .rev__body {
-  max-width: 780px;
+  max-width: 660px;
   transition: opacity 260ms ease, transform 260ms ease;
 }
 
@@ -638,11 +638,12 @@ footer a:hover { color: #fff; }
 .rev__quote {
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: clamp(1.3rem, 2.6vw, 2.05rem);
-  line-height: 1.28;
+  font-size: clamp(1.15rem, 2.1vw, 1.65rem);
+  line-height: 1.3;
   letter-spacing: -0.015em;
   color: #fff;
-  margin-bottom: 22px;
+  text-shadow: 0 1px 12px rgba(20, 6, 15, 0.5);
+  margin-bottom: 20px;
 }
 
 .rev__by {
@@ -663,10 +664,10 @@ footer a:hover { color: #fff; }
 .rev__links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   flex-wrap: wrap;
-  margin: 38px 0 32px;
-  font-size: 0.86rem;
+  margin: 28px 0 24px;
+  font-size: 0.84rem;
 }
 
 .rev__verified {
@@ -700,10 +701,11 @@ footer a:hover { color: #fff; }
 }
 
 .rev__badge {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(20, 6, 15, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 14px;
-  padding: 20px;
+  padding: 16px;
   color: #fff;
 }
 
